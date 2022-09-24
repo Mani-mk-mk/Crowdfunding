@@ -7,6 +7,7 @@ function CreateProject() {
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [goal, setGoal] = useState("");
 
   const titleChange = (e) => {
     setTitle(e.target.value);
@@ -21,6 +22,9 @@ function CreateProject() {
   };
   const endDateChange = (e) => {
     setEndDate(e.target.value);
+  };
+  const goalChange = (e) => {
+    setGoal(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -72,6 +76,17 @@ function CreateProject() {
               id="proj-end-date"
               value={endDate}
               onChange={endDateChange}
+            />
+          </label>
+          <label htmlFor="goal">
+            Goal Amount
+            <input
+            type= "number"
+            name="goal"
+            id="goal"
+            value = {goal}
+            onChange = {goalChange}
+            placeholder = "In ETH"
             />
           </label>
           <Link to="/myprojects">
