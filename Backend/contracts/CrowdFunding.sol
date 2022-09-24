@@ -37,8 +37,8 @@ contract CrowdFunding {
     mapping (address => bool) approvals;
   }
 
-  uint numRequests;
-  mapping (uint => Request) requests;
+  uint public numRequests;
+  mapping (uint => Request) public requests;
 
   //Project Descriptions
   string  public name;
@@ -70,8 +70,10 @@ contract CrowdFunding {
     require(block.timestamp < endDate, "The duration for funding this project is over");
     //msg.value => amount in wei sent by a address
     require(msg.value >= minimumContribution, "Please send minimum amount of ethers");
-    contributors[msg.sender] = true;
-    totalContributors++;
+    if (!contributors[msg.sender]) {
+      totalContributors++;
+      contributors[msg.sender] = true;
+    }  
   }
 
 
@@ -123,5 +125,4 @@ contract CrowdFunding {
     _request.receipent.transfer(_request.amount);
     _request.complete = true;
   }
- 
 }
