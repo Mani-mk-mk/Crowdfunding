@@ -1,25 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './css/Navbar.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./css/Navbar.css";
 
 function Navbar() {
+  const [isSignedIn, setisSignedIn] = useState(true);
+
   return (
     <nav className="navbar">
-        <div className="navbar">
-          <Link style={{textDecoration: 'none'}} to='/'>
-            <h1>Sasta Kickstarter</h1>
-          </Link>
-          <div className='nav-text-right'>
-            <Link style={{textDecoration: 'none'}} to = '/browse'>
-              <h2>Browse</h2>
+      <Link style={{ textDecoration: "none" }} to="/">
+        <h1 className="nav-title">Sasta Kickstarter</h1>
+      </Link>
+      {!isSignedIn ? (
+        <ul className="nav-text-right">
+          <li>
+            <button className="purple-btn">Sign in</button>
+          </li>
+        </ul>
+      ) : (
+        <ul className="nav-text-right">
+          <li>
+            <Link style={{ textDecoration: "none" }} to="/browse">
+              <h4>Browse</h4>
             </Link>
-            <Link style={{textDecoration: 'none'}} to = '/myprojects'>
-              <h2>My Projects</h2>
+          </li>
+          <li>
+            <Link style={{ textDecoration: "none" }} to="/myprojects">
+              <h4>My Projects</h4>
             </Link>
-          </div>
-        </div>
+          </li>
+        </ul>
+      )}
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

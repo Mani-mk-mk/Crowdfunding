@@ -1,5 +1,42 @@
-.title-text{
-    color: #998BE4;
-    text-align: center;
-    margin-top: 10%;
+.grey-box-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-grey-lowopacity);
+  color: white;
+  width: 100%;
+  height: max(25vw, 150px);
+  padding: 20px;
+  line-height: 2em;
+  border-radius: 16px;
+}
+.grey-box-small h1 {
+  font-weight: 400;
+}
+.grey-box-small > * {
+  font-family: "Poppins";
+  font-weight: 200;
+}
+.proj-grid {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1fr);
+  gap: 1em;
+  justify-items: center;
+  align-items: center;
+  margin: 1em auto;
+}
+.grey-box-small > h1 {
+  margin-bottom: 15px;
+}
+
+@media (width<900px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
   }
+  .grey-box-small {
+    width: 100%;
+  }
+}

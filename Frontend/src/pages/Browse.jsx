@@ -1,10 +1,17 @@
-import React from 'react'
-import '../components/css/Browse.css'
-
+import React from "react";
+import "../components/css/Browse.css";
+import Box from "../components/Box";
 function Browse() {
   return (
-    <h1 className='title-text'>Browse</h1>
-  )
+    <div className="proj-grid">
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+    </div>
+  );
 }
 
-export default Browse
+export default Browse;

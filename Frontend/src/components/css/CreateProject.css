@@ -1,5 +1,66 @@
-.title-text{
-    color: #998BE4;
+.proj-form-container {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+.proj-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.proj-form > label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+}
+.proj-form > label[for="proj-desc"] {
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.proj-form > label > textarea {
+  font-family: "Poppins";
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em;
+  background-color: rgb(235, 235, 235);
+  width: 100%;
+  margin: 1em auto;
+}
+.proj-form input {
+  font-family: "Poppins";
+  padding: 0.5em;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  width: 60%;
+}
+
+@media (width<900px) {
+  .proj-form-container {
     text-align: center;
-    margin-top: 10%;
+    width: 100%;
   }
+  .proj-form-container h1 {
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  .proj-form > label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+    font-size: 0.7em;
+  }
+  .proj-form > label > * {
+    width: 100%;
+  }
+  .proj-form > label[for="proj-desc"] {
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,27 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap");
 
-.navbar{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    font-family: 'Encode Sans',sans-serif;
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
 }
-.nav-text-right{
-    display: flex;
-    width : 30%;
-    justify-content: space-around;
-    margin-right: 20px;
-    text-decoration: none;
-    color: white;
+a {
+  color: white;
 }
-h1{
-    margin-left : 50px;
-    font-family: 'Encode sans',sans-serif;
-    font-weight: bold;
+a:visited {
+  color: inherit;
 }
-h1:hover{
-    cursor: pointer;
+.nav-text-right {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+  text-decoration: none;
+  color: white;
+  list-style: none;
 }
-.nav-text-right:hover{
-    cursor: pointer;
+
+.nav-text-right li h4:hover {
+  color: var(--purple);
+}
+
+.nav-text-right li h4,
+.nav-text-right li button {
+  transition: color 0.1s ease;
+  font-family: "Poppins";
+  font-size: 1.2em;
+  font-weight: 200;
+}
+
+.nav-title {
+  color: var(--purple);
+  font-family: "Encode sans SC", sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  padding-bottom: 0.5em;
+  letter-spacing: 0.05em;
+}
+
+@media (width<900px) {
+  .nav-text-right {
+    display: none;
+  }
 }

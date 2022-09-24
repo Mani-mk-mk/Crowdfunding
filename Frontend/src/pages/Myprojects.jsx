@@ -1,10 +1,18 @@
-import React from 'react';
-import '../components/css/Myprojects.css';
+import React from "react";
+import "../components/css/Myprojects.css";
+import Box from "../components/Box";
 
 function Myprojects() {
   return (
-    <h1 className='title-text'>My Projects</h1>
-  )
+    <div className="proj-grid">
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+    </div>
+  );
 }
 
-export default Myprojects
+export default Myprojects;
