@@ -1,10 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Web3ReactProvider } from "@web3-react/core";
+import Web3 from "web3";
+import { MetamaskProvider } from "./hooks/useMetamask";
+
+function getLibrary(provider, connector) {
+	return new Web3(provider);
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
-    <App />
+	// <React.StrictMode>
+	<Web3ReactProvider getLibrary={getLibrary}>
+		<MetamaskProvider>
+			<App />
+		</MetamaskProvider>
+	</Web3ReactProvider>
+	// </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
