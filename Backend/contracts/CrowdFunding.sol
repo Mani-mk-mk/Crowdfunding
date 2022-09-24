@@ -8,7 +8,7 @@ contract Deployer {
   
   CrowdFunding[] public deployedProjects;
 
-  function createFunding(uint256 _amount, string memory _name, string memory _description, uint256 _endDate, uint256 _requiredFund)  public {
+  function createFunding(uint256 _amount, string memory _name, string memory _description, uint256 _endDate, uint256 _requiredFund)  public payable {
     CrowdFunding deployedAddress = new CrowdFunding(_amount, msg.sender, _name, _description, _endDate, _requiredFund);
     deployedProjects.push(deployedAddress);
   }
