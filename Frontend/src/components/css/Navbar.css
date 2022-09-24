@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Encode Sans',sans-serif;
+}
+.nav-text-right{
+    display: flex;
+    width : 30%;
+    justify-content: space-around;
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+h1{
+    margin-left : 50px;
+    font-family: 'Encode sans',sans-serif;
+    font-weight: bold;
+}
+h1:hover{
+    cursor: pointer;
+}
+.nav-text-right:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+  background-color: black;
+  background-image: url(./assets/bgimage.png);
+  background-size: cover;
+  color: #998BE4;
+  font-family: 'Encode Sans',sans-serif;
+  font-weight: lighter;
+}
+
+

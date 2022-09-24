@@ -1,0 +1,14 @@
+.title-text{
+  color: #998BE4;
+  text-align: center;
+  margin-top: 10%;
+}
+.title-text-btn{
+  color: white;
+  background-color: #998BE4;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+}
