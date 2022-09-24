@@ -11,11 +11,13 @@ const deployer = new web3.eth.Contract(contract.abi, config.contractAddress);
 const getDeployedProjects = async () => {
 	const deployedProjects = await deployer.methods.getDeployedProjects().call();
 	console.log(deployedProjects);
+	return deployedProjects;
 };
 
 const getDeployedProjectsLength = async () => {
 	const result = await deployer.methods.getDeployedProjectsCount().call();
 	console.log(result);
+	return result;
 };
 
 const createFunding = async (
@@ -39,7 +41,7 @@ const createFunding = async (
 			gas: 3000000,
 		});
 
-	console.log(fund);
+	// console.log(fund);
 };
 
 getDeployedProjects();
@@ -52,3 +54,5 @@ createFunding(
 	4,
 	ethers.utils.parseEther("5")
 );
+
+//Create interact script for CrowdFunding Contract now
