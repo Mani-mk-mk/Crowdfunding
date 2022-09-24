@@ -19,3 +19,5 @@ main().catch((error) => {
 	console.error(error);
 	process.exitCode = 1;
 });
+
+//Deployed Contract address: 0x5bD06fadfA2615066239Eb62f4D5818350C05259
