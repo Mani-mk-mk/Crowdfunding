@@ -1,68 +1,57 @@
 .grey-box-small {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	justify-content: center;
-	background-color: var(--light-grey-lowopacity);
-	color: white;
-	width: 100%;
-	height: max(25vw, 150px);
-	padding: 20px;
-	line-height: 2em;
-	border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-evenly;
+  background-color: var(--light-grey-lowopacity);
+  color: white;
+  width: 100%;
+  min-height: max(25vw, 150px);
+  padding: 20px;
+  line-height: 2rem;
+  border-radius: 16px;
 }
 .grey-box-small h1 {
-	font-weight: 700;
-	font-size: 2.5em;
+  font-weight: 700;
+  font-size: 2.5rem;
 }
 .grey-box-small span {
-	color: var(--purple);
+  color: var(--purple);
 }
 .grey-box-small > * {
-	font-family: "Poppins";
-	font-weight: 200;
+  font-family: "Poppins";
+  font-weight: 200;
 }
 .proj-grid {
-	width: 90%;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(1fr);
-	gap: 1em;
-	justify-items: center;
-	align-items: center;
-	margin: 1em auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1fr);
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  margin: 1em auto;
 }
 .grey-box-small > h1 {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .browse-cont {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
 }
 .browse-proj-count {
-	font-family: "Poppins";
-	/* margin-top: 25%; */
-	color: white;
+  font-family: "Poppins";
+  /* margin-top: 25%; */
+  color: white;
 }
 @media (width<900px) {
-	.proj-grid {
-		grid-template-columns: 1fr;
-	}
-	.grey-box-small {
-		width: 100%;
-		height: 100%;
-	}
-}
-.contribute-btn button {
-	visibility: hidden;
-	background-color: var(--purple);
-	color: white;
-	padding: 10px;
-	border:none;
-	/* border-radius */
-}
-.grey-box-small:hover button {
-	visibility: visible;
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+  .grey-box-small {
+    width: 100%;
+    height: 100%;
+  }
 }

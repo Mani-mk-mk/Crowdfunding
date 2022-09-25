@@ -1,70 +1,70 @@
 .title-text {
-	color: var(--purple);
-	text-align: center;
-	margin-top: 10%;
+  color: var(--purple);
+  text-align: center;
+  margin-top: 10%;
 }
 .grey-box {
-	display: flex;
-	margin: auto;
-	width: 80%;
-	justify-content: space-around;
-	flex-direction: row;
-	color: white;
-	background: var(--light-grey-lowopacity);
-	padding: 30px;
-	font-family: "Poppins", "sans-serif";
-	border-radius: 25px;
+  display: flex;
+  margin: auto;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: row;
+  color: white;
+  background: var(--light-grey-lowopacity);
+  padding: 30px;
+  font-family: "Poppins", "sans-serif";
+  border-radius: 25px;
 }
 .grey-box > div {
-	font-size: 2em;
+  font-size: 2rem;
 }
 
 .home-text-left {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .home-text-left > h5 {
-	margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .home-text-left > * {
-	font-weight: 400;
+  font-weight: 400;
 }
 
 .purple-btn {
-	background: var(--darker-purple);
-	color: white;
-	border-radius: 30px;
-	padding: 0.35em 1em;
-	border: none;
-	/* margin-top: 40px; */
-	font-family: "Poppins";
-	font-size: 0.8em;
-	transition: 0.1s ease;
+  background: var(--darker-purple);
+  color: white;
+  border-radius: 30px;
+  padding: 0.35em 1rem;
+  border: none;
+  /* margin-top: 40px; */
+  font-family: "Poppins";
+  font-size: 1.2rem;
+  transition: 0.1s ease;
 }
 .purple-btn:hover {
-	background: rgb(228, 228, 228);
-	color: var(--darker-purple);
-	cursor: pointer;
+  background: rgb(228, 228, 228);
+  color: var(--darker-purple);
+  cursor: pointer;
 }
 
 .home-proj-count {
-	margin: 1em 0;
-	font-weight: 200;
+  margin: 1em 0;
+  font-weight: 200;
 }
 .home-proj-count > span {
-	color: var(--purple);
-	font-weight: 400;
+  color: var(--purple);
+  font-weight: 400;
 }
 
 @media (width<900px) {
-	.grey-box > img {
-		display: none;
-	}
-	.grey-box {
-		flex-direction: column;
-	}
-	.home-text-left {
-		font-size: 1em;
-	}
+  .grey-box > img {
+    display: none;
+  }
+  .grey-box {
+    flex-direction: column;
+  }
+  .home-text-left {
+    font-size: 1rem;
+  }
 }

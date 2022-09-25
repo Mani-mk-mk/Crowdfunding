@@ -7,9 +7,11 @@ pragma solidity ^0.8.9;
 contract Deployer {
   
   CrowdFunding[] public deployedProjects;
+  mapping (address => CrowdFunding[]) public ownersProjects;
 
   function createFunding(uint256 _amount, string memory _name, string memory _description, uint256 _endDate, uint256 _requiredFund)  public payable {
     CrowdFunding deployedAddress = new CrowdFunding(_amount, msg.sender, _name, _description, _endDate, _requiredFund);
+    ownersProjects[msg.sender].push(deployedAddress);
     deployedProjects.push(deployedAddress);
   }
 
