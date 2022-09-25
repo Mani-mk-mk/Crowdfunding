@@ -1,22 +1,24 @@
 import React, {
-	Children,
 	createContext,
 	useEffect,
 	useMemo,
+	useCallback,
 	useState,
 	useContext,
 } from "react";
 import { useWeb3React } from "@web3-react/core";
-import injected from "../components/WalletConnector";
+import { injected } from "../components/WalletConnector";
 
 export const MetamaskContext = createContext(null);
 
 export const MetamaskProvider = ({ children }) => {
-	const { activate, account, library, connector, active, deactivate } =
+	const { activate, account, library, connector, active, error, deactivate } =
 		useWeb3React();
 
+	// Check when App is Connected or Disconnected to MetaMask
+	// Connect to MetaMask wallet
 	const connect = async () => {
-		console.log("Connecting to MetaMask Wallet");
+		console.log("Connecting to MetaMask...");
 		try {
 			await activate(injected);
 		} catch (error) {
@@ -26,11 +28,11 @@ export const MetamaskProvider = ({ children }) => {
 
 	// Disconnect from Metamask wallet
 	const disconnect = async () => {
-		console.log("Deactivating...");
+		console.log("Disconnecting wallet from App...");
 		try {
 			await deactivate();
 		} catch (error) {
-			console.log("Error on disconnecting: ", error);
+			console.log("Error on disconnnect: ", error);
 		}
 	};
 
@@ -40,7 +42,7 @@ export const MetamaskProvider = ({ children }) => {
 			connect,
 			disconnect,
 		}),
-		[]
+		[account]
 	);
 
 	return (

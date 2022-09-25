@@ -1,5 +1,6 @@
 const Web3 = require("web3");
 const web3 = new Web3("http://127.0.0.1:7545");
+const { ethers } = require("ethers");
 
 const config = require("../config");
 
@@ -10,7 +11,7 @@ const deployer = new web3.eth.Contract(contract.abi, config.contractAddress);
 
 const getDeployedProjects = async () => {
 	const deployedProjects = await deployer.methods.getDeployedProjects().call();
-	console.log(deployedProjects);
+	// console.log(deployedProjects);
 	return deployedProjects;
 };
 
@@ -28,24 +29,38 @@ const createFunding = async (
 	duration,
 	requiredAmount
 ) => {
-	await deployer.methods
-		.createFunding(
-			minimumContribution,
-			title,
-			description,
-			duration,
-			requiredAmount
-		)
-		.send({
-			from: address,
-			gas: 3000000,
-		});
+	console.log(
+		address,
+		title,
+		description,
+		minimumContribution,
+		duration,
+		requiredAmount
+	);
+	// console.log(web3.eth.getAccounts());
+	console.log("trying to deploy");
+	try {
+		await deployer.methods
+			.createFunding(
+				ethers.utils.parseEther(minimumContribution),
+				title,
+				description,
+				duration,
+				ethers.utils.parseEther(requiredAmount)
+			)
+			.send({
+				from: address,
+				gas: 3000000,
+			});
+	} catch (error) {
+		console.log(error);
+	}
 
 	// console.log(fund);
 };
 
-getDeployedProjects();
-getDeployedProjectsLength();
+// getDeployedProjects();
+// getDeployedProjectsLength();
 // createFunding(
 // 	"0x199a87570C0C202fe5D703423491B188552d7868",
 // 	"Test",
@@ -105,7 +120,7 @@ const getBalanceOf = async (index) => {
 	);
 
 	const balance = await crowdFunding.methods.getAmountReceived().call();
-	console.log(balance);
+	// console.log(balance);
 	return balance;
 };
 
@@ -146,8 +161,34 @@ const timeRemaining = async (index) => {
 	);
 
 	const time = await crowdFunding.methods.timeRemaining().call();
-	console.log(time);
+	// console.log(time);
 	return time;
+};
+
+const getDetails = async (index) => {
+	const contractAddress = (await getDeployedProjects())[index];
+	const crowdFunding = new web3.eth.Contract(
+		crowdFundingContract.abi,
+		contractAddress
+	);
+
+	const name = await crowdFunding.methods.name().call();
+	const description = await crowdFunding.methods.description().call();
+	const endDate = await crowdFunding.methods.endDate().call();
+	const goal = await crowdFunding.methods.requiredFund().call();
+	const amountCollected = await crowdFunding.methods.getAmountReceived().call();
+
+	const result = {
+		name: name,
+		description: description,
+		goal: web3.utils.fromWei(goal, "ether"),
+		endDate: new Date(endDate * 1000).toISOString(),
+		amountCollected: web3.utils.fromWei(amountCollected, "ether"),
+	};
+
+	// console.log(result);
+
+	return result;
 };
 
 const approveRequest = async (index, requestIndex, address) => {
@@ -192,7 +233,7 @@ const finalizeRequest = async (index, requestIndex, address) => {
 // 	"0x7Ee0e98D96876839525e8C678c8823aFB2D900d3"
 // );
 
-// getBalanceOf(0);
+getDetails(0);
 
 module.exports = {
 	getDeployedProjects,
@@ -206,4 +247,5 @@ module.exports = {
 	approveRequest,
 	finalizeRequest,
 	getBalanceOf,
+	getDetails,
 };
